@@ -1,41 +1,33 @@
 ﻿namespace DAL.Interface.DTO
 {
     public class ClientDTO
-    {
-        private string firstname;
-
-        private string lastname;
-
-        private string passport;
-
-        private string email;
-
+    {        
         public ClientDTO(string firstname, string lastname, string passport, string email)
         {
-            this.firstname = firstname;
-            this.lastname = lastname;
-            this.passport = passport;
-            this.email = email;
+            Firstname = firstname;
+            Lastname = lastname;
+            Passport = passport;
+            Email = email;
         }
 
         /// <summary>
         /// Firstname of client
         /// </summary>
-        public string Firstname => firstname;
+        public string Firstname { get; set; }
 
         /// <summary>
         /// Lastname of client
         /// </summary>
-        public string Lastname => lastname;
+        public string Lastname { get; set; }
 
         /// <summary>
         /// Passport number of client
         /// </summary>
-        public string Passport => passport;
+        public string Passport { get; set; }
 
         /// <summary>
         /// Email adress of client
         /// </summary>
-        public string Email => email;
+        public string Email { get; set; }
     }
 }
