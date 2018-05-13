@@ -70,7 +70,7 @@ namespace BLL.Tests
             accountService.Withdraw(fakeRepository.Read(client1), 1000m, new StandartBonusCalculator());
 
             Assert.AreEqual(9000m, fakeRepository.Read(client1).Amount);
-            Assert.AreEqual(-10d, fakeRepository.Read(client1).BonusPoints);
+            Assert.AreEqual(-10d, fakeRepository.Read(client1).BonusPoints);            
         }
     }
 }
