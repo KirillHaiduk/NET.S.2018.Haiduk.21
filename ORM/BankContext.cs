@@ -14,6 +14,13 @@ namespace ORM
         }
 
         public DbSet<BankAccount> BankAccounts { get; set; }
+
         public DbSet<Client> Clients { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<BankAccount>().HasKey(b => b.AccountNumberID);
+            modelBuilder.Entity<Client>().HasKey(c => c.PassportID);
+        }
     }
 }
