@@ -1,6 +1,7 @@
 ﻿using System;
 using BLL.Interface.Entities;
 using BLL.Interface.Services;
+using BLL.Mappers;
 using DAL.Interface.Repository;
 
 namespace BLL.Services
@@ -14,9 +15,9 @@ namespace BLL.Services
         /// Method for creaing Bank Account
         /// </summary>
         /// <param name="account">Account that is creating</param>
-        public void CreateAccount(IRepository repository, Client client, decimal startAmount, IAccountNumberGenerator accountNumberGenerator)
+        public void CreateAccount(IRepository repository, Client client, decimal startAmount)
         {
-            repository.Create(client, startAmount, accountNumberGenerator);
+            repository.Create(client.ToDalUser(), startAmount);
         }
 
         /// <summary>
@@ -40,7 +41,7 @@ namespace BLL.Services
         }
 
         /// <summary>
-        /// Virtual method for write-off Bank Account
+        /// Virtual method for write-off from Bank Account
         /// </summary>        
         /// <param name="amount">Amount value</param>        
         /// <returns>Amount after write-off</returns>
