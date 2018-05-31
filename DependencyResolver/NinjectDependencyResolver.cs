@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BLL.Interface.Entities;
-using BLL.Interface.Services;
+﻿using BLL.Interface.Services;
+using BLL.Services;
 using DAL.Fake;
 using DAL.Interface.Repository;
 using Ninject;
-using Ninject.Activation;
-using Ninject.Modules;
 
 namespace DependencyResolver
 {
