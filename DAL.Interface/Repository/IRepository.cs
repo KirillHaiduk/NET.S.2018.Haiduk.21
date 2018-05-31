@@ -1,15 +1,14 @@
-﻿using BLL.Interface.Entities;
-using BLL.Interface.Services;
+﻿using DAL.Interface.DTO;
 
 namespace DAL.Interface.Repository
 {
     public interface IRepository
     {
-        void Create(Client client, decimal startAmount, IAccountNumberGenerator accountNumberGenerator);
+        void Create(ClientDTO client, decimal startAmount);
 
-        BankAccount Read(Client client);
+        BankAccountDTO Read(ClientDTO client);
 
-        void Update(BankAccount account);
+        void Update(BankAccountDTO account);
 
         void Delete(int accountNumber);
     }
