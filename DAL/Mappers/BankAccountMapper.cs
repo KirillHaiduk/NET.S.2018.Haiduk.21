@@ -16,7 +16,7 @@ namespace DAL.Mappers
             return new BankAccount
             {
                 IsClosed = dto.IsClosed,
-                AccountNumberID = dto.AccountNumber,
+                AccountNumber = dto.AccountNumber,
                 AccountType = dto.Type.ToString(),
                 Amount = dto.Amount,
                 BonusPoints = dto.BonusPoints,
@@ -33,7 +33,7 @@ namespace DAL.Mappers
 
             return new BankAccountDTO(
                 account.IsClosed,
-                account.AccountNumberID,
+                account.AccountNumber,
                 new ClientDTO(account.Owner.Firstname, account.Owner.Lastname, account.Owner.PassportID, account.Owner.Email),
                 account.Amount,
                 account.BonusPoints,                
