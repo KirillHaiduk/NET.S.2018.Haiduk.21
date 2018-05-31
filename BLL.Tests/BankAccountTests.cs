@@ -4,8 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BLL.Interface.Entities;
+using BLL.Mappers;
 using BLL.Services;
 using DAL.Fake;
+using DAL.Interface.DTO;
 using Moq;
 using NUnit.Framework;
 
@@ -45,32 +47,35 @@ namespace BLL.Tests
             var client1 = new Client("firstname1", "lastname1", "password1", "email1");
             var client2 = new Client("firstname2", "lastname2", "password2", "email2");
 
+            var dalClient1 = client1.ToDalUser();
+            var dalClient2 = client2.ToDalUser();
+
             var accountService = new AccountWorkingService();
             var fakeRepository = new ListRepository();
             var accountNumberGenerator = new StandartAccountNumberGenerator();
 
-            accountService.CreateAccount(fakeRepository, client1, 8500m, accountNumberGenerator);
-            accountService.CreateAccount(fakeRepository, client2, 50m, accountNumberGenerator);
+            accountService.CreateAccount(fakeRepository, client1, 8500m);
+            accountService.CreateAccount(fakeRepository, client2, 50m);
 
-            Assert.That(fakeRepository.Read(client1) is GoldBankAccount);
-            Assert.That(fakeRepository.Read(client2) is BaseBankAccount);
+            Assert.IsTrue(fakeRepository.Read(dalClient1).Type == BankAccountDTO.AccountType.Gold);
+            Assert.IsTrue(fakeRepository.Read(dalClient2).Type == BankAccountDTO.AccountType.Base);
 
-            accountService.Deposit(fakeRepository.Read(client1), 1500m, new StandartBonusCalculator());
+            accountService.Deposit(fakeRepository.Read(dalClient1).ToBllAccount(), 1500m, new StandartBonusCalculator());
 
-            Assert.AreEqual(10000m, fakeRepository.Read(client1).Amount);
-            Assert.AreEqual(100d, fakeRepository.Read(client1).BonusPoints);
+            Assert.AreEqual(10000m, fakeRepository.Read(dalClient1).Amount);
+            Assert.AreEqual(100d, fakeRepository.Read(dalClient1).BonusPoints);
 
-            Assert.Throws<ArgumentException>(() => accountService.Withdraw(fakeRepository.Read(client2), 100m, new StandartBonusCalculator()));
+            Assert.Throws<ArgumentException>(() => accountService.Withdraw(fakeRepository.Read(dalClient2).ToBllAccount(), 100m, new StandartBonusCalculator()));
 
-            accountService.Withdraw(fakeRepository.Read(client2), 20m, new StandartBonusCalculator());
+            accountService.Withdraw(fakeRepository.Read(dalClient2).ToBllAccount(), 20m, new StandartBonusCalculator());
 
-            Assert.AreEqual(30m, fakeRepository.Read(client2).Amount);
-            Assert.AreEqual(-0.007, fakeRepository.Read(client2).BonusPoints);
+            Assert.AreEqual(30m, fakeRepository.Read(dalClient2).Amount);
+            Assert.AreEqual(-0.007, fakeRepository.Read(dalClient2).BonusPoints);
 
-            accountService.Withdraw(fakeRepository.Read(client1), 1000m, new StandartBonusCalculator());
+            accountService.Withdraw(fakeRepository.Read(dalClient1).ToBllAccount(), 1000m, new StandartBonusCalculator());
 
-            Assert.AreEqual(9000m, fakeRepository.Read(client1).Amount);
-            Assert.AreEqual(-10d, fakeRepository.Read(client1).BonusPoints);            
+            Assert.AreEqual(9000m, fakeRepository.Read(dalClient1).Amount);
+            Assert.AreEqual(-10d, fakeRepository.Read(dalClient1).BonusPoints);
         }
     }
 }
