@@ -1,10 +1,12 @@
 ﻿namespace ORM
 {
     public class BankAccount
-    {        
+    {
+        public int AccountNumberID { get; set; }
+
         public bool IsClosed { get; set; }
                 
-        public int AccountNumberID { get; set; }        
+        public int AccountNumber { get; set; }
 
         public decimal Amount { get; set; }
 
