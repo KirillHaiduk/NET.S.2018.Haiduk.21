@@ -49,6 +49,15 @@ namespace BLL.Interface.Entities
             BonusPoints = 0;
         }
 
+        public BankAccount(bool isClosed, int accountNumber, Client owner, decimal balance, double bonusPoints)
+        {
+            this.closed = isClosed;
+            this.AccNumber = accountNumber;
+            this.Owner = owner;
+            this.amount = balance;
+            this.BonusPoints = bonusPoints;
+        }
+
         #region Properties
 
         /// <summary>

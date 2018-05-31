@@ -12,6 +12,10 @@ namespace BLL.Interface.Entities
         {
         }
 
+        public GoldBankAccount(bool isClosed, int accountNumber, Client owner, decimal balance, double bonusPoints) : base(isClosed, accountNumber, owner, balance, bonusPoints)
+        {
+        }
+
         public override bool IsValidBalance(BankAccount account, decimal amount)
         {
             if (this.Amount < amount + 1000M)
