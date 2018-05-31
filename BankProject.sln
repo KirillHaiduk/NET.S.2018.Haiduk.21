@@ -19,6 +19,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ORM", "ORM\ORM.csproj", "{0
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{51FCA443-C611-4795-A057-1EB8569B3018}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCProject", "MVCProject\MVCProject.csproj", "{C40BF0E9-1652-432B-80DB-973B0590E100}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsolePL", "ConsolePL\ConsolePL.csproj", "{A2A4D204-EE03-40D3-9C0D-66AD4381862B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +61,14 @@ Global
 		{51FCA443-C611-4795-A057-1EB8569B3018}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{51FCA443-C611-4795-A057-1EB8569B3018}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{51FCA443-C611-4795-A057-1EB8569B3018}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C40BF0E9-1652-432B-80DB-973B0590E100}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C40BF0E9-1652-432B-80DB-973B0590E100}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C40BF0E9-1652-432B-80DB-973B0590E100}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C40BF0E9-1652-432B-80DB-973B0590E100}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2A4D204-EE03-40D3-9C0D-66AD4381862B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2A4D204-EE03-40D3-9C0D-66AD4381862B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2A4D204-EE03-40D3-9C0D-66AD4381862B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2A4D204-EE03-40D3-9C0D-66AD4381862B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
