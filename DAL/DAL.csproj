@@ -50,7 +50,7 @@
       <Name>DAL.Interface</Name>
     </ProjectReference>
     <ProjectReference Include="..\ORM\ORM.csproj">
-      <Project>{0FFDBA46-F3B1-4A15-9B04-C40B6A7BEF64}</Project>
+      <Project>{0ffdba46-f3b1-4a15-9b04-c40b6a7bef64}</Project>
       <Name>ORM</Name>
     </ProjectReference>
   </ItemGroup>
